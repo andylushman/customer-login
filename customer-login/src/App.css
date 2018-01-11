@@ -1,0 +1,57 @@
+/******************
+App Component
+*******************/
+.App {
+}
+
+.App-logo {
+  height: 50px;
+}
+
+.App-header {
+  border-bottom: 2px solid #38383a;
+  margin-bottom: 10px;
+}
+
+/******************
+CheckIn Component
+*******************/
+.CheckIn-component {
+  border: 2px solid #38383a;
+  width: 80%;
+  margin: auto;
+}
+
+.CheckIn {
+  background-color: #38383a;
+  height: 80px;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.CheckIn-title {
+  font-family: times;
+  text-align: center;
+}
+
+.Keypad-number {
+  display: inline-block;
+  width: 33.33%;
+  text-align: center;
+  height: 65px;
+  line-height: 65px;
+}
+
+.Keypad-number:hover {
+  background-color: #1E90FF;
+  color: white;
+}
+
+.Check-key {
+  background-color: lightgreen;
+}
+
+.Back-key {
+  background-color: #CD5C5C;
+}

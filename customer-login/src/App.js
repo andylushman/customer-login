@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './components/Header';
+import CheckIn from './components/CheckIn';
 
 class App extends Component {
   constructor() {
@@ -9,10 +11,9 @@ class App extends Component {
 
   render() {
     return (
-
       <div className="App">
-        <h1>Title</h1>
-        <p>Smaller title</p>
+        <Header />
+        <CheckIn />
       </div>
     );
   }
