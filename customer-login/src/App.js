@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import CheckIn from './components/CheckIn';
+import UserPage from './components/UserPage';
+import Form from './components/Form';
 
 class App extends Component {
   constructor() {
@@ -11,9 +13,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div id="App-Component">
         <Header />
         <CheckIn />
+        <UserPage />
+        <Form />
       </div>
     );
   }

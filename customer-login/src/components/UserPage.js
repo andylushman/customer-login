@@ -8,7 +8,7 @@ class UserPage extends Component {
 
   render() {
     return (
-      <div>
+      <div id= 'UserPage-Component' className= 'Component-outline'>
 
       </div>
     );

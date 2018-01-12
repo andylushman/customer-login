@@ -1,7 +1,17 @@
 /******************
+All Components
+*******************/
+
+.Component-outline {
+  border: 2px solid #38383a;
+  width: 80%;
+  margin: auto;
+}
+
+/******************
 App Component
 *******************/
-.App {
+#App-Component {
 }
 
 .App-logo {
@@ -16,10 +26,8 @@ App Component
 /******************
 CheckIn Component
 *******************/
-.CheckIn-component {
-  border: 2px solid #38383a;
-  width: 80%;
-  margin: auto;
+#CheckIn-Component {
+
 }
 
 .CheckIn {
@@ -55,3 +63,12 @@ CheckIn Component
 .Back-key {
   background-color: #CD5C5C;
 }
+
+/******************
+Form Component
+*******************/
+
+
+/******************
+UserPage Component
+*******************/

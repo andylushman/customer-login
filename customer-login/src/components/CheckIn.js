@@ -8,7 +8,7 @@ class CheckIn extends Component {
 
   render() {
     return (
-      <div className= 'CheckIn-component'>
+      <div id= 'CheckIn-Component' className= 'Component-outline'>
         <header className='CheckIn'>
           <h1 className='CheckIn-title'>Loyalty Check-in</h1>
         </header>

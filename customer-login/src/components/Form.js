@@ -8,8 +8,14 @@ class Form extends Component {
 
   render() {
     return (
-      <div>
-
+      <div id= 'Form-Component' className= 'Component-outline'>
+        <form action="">
+          First name:<br/>
+          <input type="text"/><br/>
+          Last name:<br/>
+          <input type="text"/><br/><br/>
+          <input type="submit" value="Submit"/>
+        </form>
       </div>
     );
   }
