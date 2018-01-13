@@ -9,6 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.appendNumber=this.appendNumber.bind(this);
+    this.trimPhoneNumber=this.trimPhoneNumber.bind(this);
     this.state = {
       phoneNumber: ""
     };
@@ -25,6 +26,12 @@ class App extends Component {
       case 4:
         phoneNumber += ')';
         break;
+      case 8:
+        phoneNumber += '-';
+        break;
+      case 12:
+        this.checkInButton();
+        break;
       default:
         break;
     }
@@ -35,11 +42,22 @@ class App extends Component {
     this.setState({phoneNumber: phoneNumber });
   }
 
+  checkInButton(){
+    let newClass = document.getElementById('checkIn');
+    newClass.className += ' check-key';
+  }
+
+  trimPhoneNumber(){
+    let str = this.state.phoneNumber;
+    str = str.slice(0, -1);
+    this.setState({phoneNumber: str});
+  }
+
   render() {
     return (
       <div id="app-component">
         <Header />
-        <CheckIn phoneNumber={this.state.phoneNumber} appendNumber={this.appendNumber} />
+        <CheckIn phoneNumber={this.state.phoneNumber} appendNumber={this.appendNumber} trimPhoneNumber= {this.trimPhoneNumber} />
         <UserPage />
         <Form />
       </div>

@@ -33,9 +33,9 @@ class CheckIn extends Component {
           <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,7)}>7</div>
           <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,8)}>8</div>
           <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,9)}>9</div>
-          <div className= 'keypad-number back-key'>&lt;</div>
+          <div className= 'keypad-number back-key' onClick={this.props.trimPhoneNumber}>&lt;</div>
           <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,0)}>0</div>
-          <div className= 'keypad-number check-key'>Check-in &#10004;</div>
+          <div id= 'checkIn' className= 'keypad-number'>Check-in &#10004;</div>
         </div>
       </div>
     );
