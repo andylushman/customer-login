@@ -8,13 +8,18 @@ class Form extends Component {
 
   render() {
     return (
-      <div id= 'Form-Component' className= 'Component-outline'>
-        <form action="">
+      <div id= 'form-component' className= 'component-outline'>
+        <header className='component-header'>
+          <h1 className='component-title'>Please Create Account</h1>
+        </header>
+        <form action=''>
           First name:<br/>
-          <input type="text"/><br/>
+          <input type='text'/><br/>
           Last name:<br/>
-          <input type="text"/><br/><br/>
-          <input type="submit" value="Submit"/>
+          <input type='text'/><br/>
+          Email:<br/>
+          <input type='email'/><br/><br/>
+          <input type='submit' value='Submit'/>
         </form>
       </div>
     );

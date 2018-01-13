@@ -3,33 +3,39 @@ import React, { Component } from 'react';
 class CheckIn extends Component {
   constructor() {
     super();
-
   }
+
+  // generateKeypad(){
+  //   for(let i=1; i < 10; i++) {
+  //   let newDiv = <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,i)}>i</div>;
+  //   document.getElementsByClassName('keypad').append(newDiv);
+  //   }
+  // }
 
   render() {
     return (
-      <div id= 'CheckIn-Component' className= 'Component-outline'>
-        <header className='CheckIn'>
-          <h1 className='CheckIn-title'>Loyalty Check-in</h1>
+      <div id= 'checkin-component' className= 'component-outline'>
+        <header className='component-header'>
+          <h1 className='component-title'>Loyalty Check-in{this.props.phoneNumber}</h1>
         </header>
         <div>
-          <h3 className='CheckIn-title'>Welcome! Please enter your phone number to check-in and earn points.</h3>
+          <h3 className='checkIn-title'>Welcome! Please enter your phone number to check-in and earn points.</h3>
         </div>
 
         {/* Keypad */}
-        <div className= 'Keypad'>
-          <div className= 'Keypad-number'>1</div>
-          <div className= 'Keypad-number'>2</div>
-          <div className= 'Keypad-number'>3</div>
-          <div className= 'Keypad-number'>4</div>
-          <div className= 'Keypad-number'>5</div>
-          <div className= 'Keypad-number'>6</div>
-          <div className= 'Keypad-number'>7</div>
-          <div className= 'Keypad-number'>8</div>
-          <div className= 'Keypad-number'>9</div>
-          <div className= 'Keypad-number Back-key'>&lt;</div>
-          <div className= 'Keypad-number'>0</div>
-          <div className= 'Keypad-number Check-key'>Check-in &#10004;</div>
+        <div className= 'keypad'>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,1)}>1</div>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,2)}>2</div>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,3)}>3</div>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,4)}>4</div>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,5)}>5</div>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,6)}>6</div>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,7)}>7</div>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,8)}>8</div>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,9)}>9</div>
+          <div className= 'keypad-number back-key'>&lt;</div>
+          <div className= 'keypad-number' onClick={this.props.appendNumber.bind(this,0)}>0</div>
+          <div className= 'keypad-number check-key'>Check-in &#10004;</div>
         </div>
       </div>
     );

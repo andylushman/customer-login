@@ -1,36 +1,14 @@
 /******************
-All Components
+Components General
 *******************/
 
-.Component-outline {
+.component-outline {
   border: 2px solid #38383a;
   width: 80%;
   margin: auto;
 }
 
-/******************
-App Component
-*******************/
-#App-Component {
-}
-
-.App-logo {
-  height: 50px;
-}
-
-.App-header {
-  border-bottom: 2px solid #38383a;
-  margin-bottom: 10px;
-}
-
-/******************
-CheckIn Component
-*******************/
-#CheckIn-Component {
-
-}
-
-.CheckIn {
+.component-header {
   background-color: #38383a;
   height: 80px;
   text-align: center;
@@ -38,12 +16,34 @@ CheckIn Component
   color: white;
 }
 
-.CheckIn-title {
+.component-title {
   font-family: times;
   text-align: center;
 }
 
-.Keypad-number {
+/******************
+App Component
+*******************/
+#app-component {
+}
+
+.app-logo {
+  height: 50px;
+}
+
+.app-header {
+  border-bottom: 2px solid #38383a;
+  margin-bottom: 10px;
+}
+
+/******************
+CheckIn Component
+*******************/
+#checkIn-component {
+
+}
+
+.keypad-number {
   display: inline-block;
   width: 33.33%;
   text-align: center;
@@ -51,24 +51,31 @@ CheckIn Component
   line-height: 65px;
 }
 
-.Keypad-number:hover {
+.keypad-number:hover {
   background-color: #1E90FF;
   color: white;
 }
 
-.Check-key {
+.check-key {
   background-color: lightgreen;
 }
 
-.Back-key {
+.back-key {
   background-color: #CD5C5C;
 }
 
 /******************
 Form Component
 *******************/
-
+#form-component {
+  font-family: times;
+  text-align: center;
+}
 
 /******************
 UserPage Component
 *******************/
+#userPage-component {
+  font-family: times;
+  text-align: center;
+}
