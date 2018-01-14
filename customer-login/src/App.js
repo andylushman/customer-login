@@ -10,8 +10,10 @@ class App extends Component {
     super();
     this.appendNumber=this.appendNumber.bind(this);
     this.trimPhoneNumber=this.trimPhoneNumber.bind(this);
+    this.checkInButton=this.checkInButton.bind(this);
     this.state = {
-      phoneNumber: ""
+      phoneNumber: '',
+      checkInAllowed: false
     };
   }
 
@@ -40,17 +42,27 @@ class App extends Component {
     phoneNumber += number;
 
     this.setState({phoneNumber: phoneNumber });
+    this.checkInButton();
   }
 
   checkInButton(){
-    let newClass = document.getElementById('checkIn');
-    newClass.className += ' check-key';
+    if (this.state.phoneNumber.length == 12) {
+      let newClass = document.getElementById('checkIn');
+      newClass.className += ' check-key';
+      this.setState({checkInAllowed: true});
+    } else {
+      let newClass = document.getElementById('checkIn');
+      newClass.className = 'keypad-number';
+      this.setState({checkInAllowed: false});
+    }
+    console.log(this.state.checkInAllowed);
   }
 
   trimPhoneNumber(){
     let str = this.state.phoneNumber;
     str = str.slice(0, -1);
     this.setState({phoneNumber: str});
+    this.checkInButton();
   }
 
   render() {
