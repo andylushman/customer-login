@@ -12,7 +12,9 @@ class App extends Component {
     this.appendNumber=this.appendNumber.bind(this);
     this.trimPhoneNumber=this.trimPhoneNumber.bind(this);
     this.checkInButton=this.checkInButton.bind(this);
+    this.handleUserSubmit=this.handleUserSubmit.bind(this);
     this.state = {
+      data: [],
       phoneNumber: '',
       checkInAllowed: false
     };
@@ -66,13 +68,26 @@ class App extends Component {
     this.checkInButton();
   }
 
+  //API Function
+  handleUserSubmit(user) {
+    let users = this.state.data;
+    user.id = Date.now();
+    let newUser = users.concat([user]);
+    this.setState({ data: newUser });
+    axios.post(this.props.url, user)
+      .catch(err => {
+        console.error(err);
+        this.setState({ data: user });
+      });
+  }
+
   render() {
     return (
       <div id="app-component">
         <Header />
         <CheckIn phoneNumber={this.state.phoneNumber} appendNumber={this.appendNumber} trimPhoneNumber= {this.trimPhoneNumber} />
         <UserPage />
-        <Form />
+        <Form onCommentSubmit={this.handleUserSubmit} />
       </div>
     );
   }
