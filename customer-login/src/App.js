@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import Header from './components/Header';
 import CheckIn from './components/CheckIn';
 import UserPage from './components/UserPage';
