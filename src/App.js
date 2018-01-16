@@ -91,19 +91,17 @@ class App extends Component {
     let newPhoneNumber=this.state.phoneNumber;
     newPhoneNumber = newPhoneNumber.replace(/\D/g,'');
     console.log(newPhoneNumber);
-    axios.get('localhost:3001/api/users', {
+    axios.get(this.props.url, {
     params: {
       phone: newPhoneNumber
     }
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-
-
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render() {
