@@ -6,12 +6,14 @@ class Form extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      email: ''
+      email: '',
+      phone: ''
     };
     this.handlefirstNameChange = this.handlefirstNameChange.bind(this);
     this.handlelastNameChange = this.handlelastNameChange.bind(this);
     this.handleemailChange = this.handleemailChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlephoneChange = this.handlephoneChange.bind(this);
   }
 
   handlefirstNameChange(e) {
@@ -25,17 +27,26 @@ class Form extends Component {
     this.setState({ email: e.target.value });
   }
 
+  handlefirstNameChange(e) {
+    this.setState({ firstName: e.target.value });
+  }
+
+  handlephoneChange(e) {
+    this.setState({ phone: e.target.value });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     let firstName = this.state.firstName.trim();
     let lastName = this.state.lastName.trim();
     let email = this.state.email.trim();
-    if (!firstName || !lastName || !email) {
+    let phone = this.state.phone.trim();
+    if (!firstName || !lastName || !email || !phone) {
       alert('Please fill in all information')
       return;
     }
-    this.props.onCommentSubmit({ firstName: firstName, lastName: lastName, email: email });
-    this.setState({ firstName: '', lastName: '', email: '' });
+    this.props.onCommentSubmit({ firstName: firstName, lastName: lastName, email: email, phone: phone});
+    this.setState({ firstName: '', lastName: '', email: '', phone: ''});
   }
 
   render() {
@@ -65,6 +76,13 @@ class Form extends Component {
           placeholder='Your email address...'
           value={ this.state.email }
           onChange={this.handleemailChange}/>
+          <br/>
+          Phone:<br/>
+          <input
+          type='tel'
+          placeholder='Your phone number...'
+          value={this.state.phone}
+          onChange={this.handlephoneChange}/>
           <br/><br/>
           <input type='submit' value='Submit'/>
         </form>

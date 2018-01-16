@@ -8,7 +8,8 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
   firstName: String,
   lastName: String,
-  email: String
+  email: String,
+  phone: String
 });
 
 //export our module to use in server.js

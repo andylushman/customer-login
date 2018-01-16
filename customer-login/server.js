@@ -58,6 +58,7 @@ router.route('/users')
     (req.body.firstName) ? user.firstName = req.body.firstName : null;
     (req.body.lastName) ? user.lastName = req.body.lastName : null;
     (req.body.email) ? user.email = req.body.email : null;
+    (req.body.phone) ? user.phone = req.body.phone : null;
 
     user.save(function(err) {
       if (err)

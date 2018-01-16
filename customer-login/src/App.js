@@ -13,6 +13,8 @@ class App extends Component {
     this.trimPhoneNumber=this.trimPhoneNumber.bind(this);
     this.checkInButton=this.checkInButton.bind(this);
     this.handleUserSubmit=this.handleUserSubmit.bind(this);
+    this.signIn=this.signIn.bind(this);
+    this.checkPhone=this.checkPhone.bind(this);
     this.state = {
       data: [],
       phoneNumber: '',
@@ -71,9 +73,7 @@ class App extends Component {
   //API Function
   handleUserSubmit(user) {
     let users = this.state.data;
-    user.id = Date.now();
-    let newUser = users.concat([user]);
-    this.setState({ data: newUser });
+    this.setState({ data: user });
     axios.post(this.props.url, user)
       .catch(err => {
         console.error(err);
@@ -81,11 +81,36 @@ class App extends Component {
       });
   }
 
+  signIn(){
+    if (this.state.checkInAllowed) {
+      this.checkPhone();
+    }
+  }
+
+  checkPhone(){
+    let newPhoneNumber=this.state.phoneNumber;
+    newPhoneNumber = newPhoneNumber.replace(/\D/g,'');
+    console.log(newPhoneNumber);
+    axios.get('localhost:3001/api/users', {
+    params: {
+      phone: newPhoneNumber
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+
+  }
+
   render() {
     return (
       <div id="app-component">
         <Header />
-        <CheckIn phoneNumber={this.state.phoneNumber} appendNumber={this.appendNumber} trimPhoneNumber= {this.trimPhoneNumber} />
+        <CheckIn phoneNumber={this.state.phoneNumber} appendNumber={this.appendNumber} trimPhoneNumber= {this.trimPhoneNumber} signIn= {this.signIn} />
         <UserPage />
         <Form onCommentSubmit={this.handleUserSubmit} />
       </div>
