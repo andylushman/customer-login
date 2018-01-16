@@ -9,7 +9,8 @@ var userSchema = new Schema({
   firstName: String,
   lastName: String,
   email: String,
-  phone: String
+  phone: String,
+  points: Number
 });
 
 //export our module to use in server.js
