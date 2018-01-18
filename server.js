@@ -41,11 +41,11 @@ router.get('/', function(req, res) {
 });
 
 //adding the /users route to our /api router
-router.route('/users')
+router.route('/users/')
   //retrieve all users from the database
   .get(function(req, res) {
     //looks at our user Schema
-    User.find(function(err, users) {
+    User.find({'phone': '1112223333'}, function(err, users) {
       if (err)
         res.send(err);
       //responds with a json object of our database users.

@@ -15,10 +15,14 @@ class App extends Component {
     this.handleUserSubmit=this.handleUserSubmit.bind(this);
     this.signIn=this.signIn.bind(this);
     this.checkPhone=this.checkPhone.bind(this);
+
     this.state = {
       data: [],
       phoneNumber: '',
-      checkInAllowed: false
+      checkInAllowed: false,
+      firstName: '',
+      lastName: '',
+      points: '',
     };
   }
 
@@ -96,8 +100,10 @@ class App extends Component {
       phone: newPhoneNumber
     }
     })
-    .then(function (response) {
-      console.log(response);
+    .then(function (res) {
+      let userPhone = res.data[0].phone;
+      this.setState({phoneNumber: userPhone});
+      console.log(this.state.phoneNumber);
     })
     .catch(function (error) {
       console.log(error);
