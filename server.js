@@ -68,19 +68,6 @@ router.route('/users')
     });
   });
 
-  //Adding a route to a specific user based on the database ID
-  router.route('/users/:userphone')
-  //The put method gives us the chance to update our user based on the ID passed to the route
-    .get(function(req, res) {
-      User.findByPhone(req.params.userphone, function(err, user) {
-        if (err)
-          res.send(err);
-        //responds with a json object of our database users.
-        res.json(users)
-        });
-      });
-
-
 //Adding a route to a specific user based on the database ID
 router.route('/users/:user_id')
 //The put method gives us the chance to update our user based on the ID passed to the route
