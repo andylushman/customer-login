@@ -138,7 +138,7 @@ class App extends Component {
 export default App;
 
 
-// Question for Zach:
+// Questions for Zach:
 // 1. How to setup a dynamic route for phone number?
 // 2. Explaination of Server.js and models... MVC Model?
 // 3. Do you have to put 'props' in the consturction(props) and super(props) of child components
