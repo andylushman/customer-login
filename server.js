@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //To prevent errors from Cross Origin Resource Sharing, we will set our headers to allow CORS with middleware like so:
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
@@ -36,16 +36,16 @@ app.use(function(req, res, next) {
 });
 
 //now  we can set the route path & initialize the API
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
   res.json({ message: 'API Initialized!'});
 });
 
 //adding the /users route to our /api router
 router.route('/users/')
   //retrieve all users from the database
-  .get(function(req, res) {
+  .get((req, res) => {
     //looks at our user Schema
-    User.find({'phoneNumber': '1112223333'} function(err, users) {
+    User.find({'phoneNumber': '1112223333'}, (err, users) => {
       if (err)
         res.send(err);
       //responds with a json object of our database users.
@@ -53,7 +53,7 @@ router.route('/users/')
     });
   })
   //post new user to the database
-  .post(function(req, res) {
+  .post((req, res) => {
     var user = new User();
     (req.body.firstName) ? user.firstName = req.body.firstName : null;
     (req.body.lastName) ? user.lastName = req.body.lastName : null;
@@ -63,7 +63,7 @@ router.route('/users/')
     (req.body.totalPoints) ? user.totalPoints = req.body.totalPoints : null;
     (req.body.lastLogin) ? user.lastLogin = req.body.lastLogin : null;
 
-    user.save(function(err) {
+    user.save((err) => {
       if (err)
         res.send(err);
       res.json({ message: 'User successfully added!' });
@@ -73,8 +73,8 @@ router.route('/users/')
 //Adding a route to a specific user based on the database ID
 router.route('/users/:user_id')
 //The put method gives us the chance to update our user based on the ID passed to the route
-  .put(function(req, res) {
-    User.findById(req.params.user_id, function(err, user) {
+  .put((req, res) => {
+    User.findById(req.params.user_id, (err, user) => {
       if (err)
         res.send(err);
       //setting the new name and text to whatever was changed. If nothing was changed
@@ -83,7 +83,7 @@ router.route('/users/:user_id')
       (req.body.lastName) ? user.lastName = req.body.lastName : null;
       (req.body.email) ? user.email = req.body.email : null;
       //save user
-      user.save(function(err) {
+      user.save((err) => {
         if (err)
           res.send(err);
         res.json({ message: 'User has been updated' });
@@ -91,9 +91,9 @@ router.route('/users/:user_id')
     });
   })
   //delete method for removing a user from our database
-  .delete(function(req, res) {
+  .delete((req, res) => {
     //selects the user by its ID, then removes it.
-    User.remove({ _id: req.params.user_id }, function(err, user) {
+    User.remove({ _id: req.params.user_id }, (err, user) => {
       if (err)
         res.send(err);
       res.json({ message: 'User has been deleted' })
@@ -104,6 +104,6 @@ router.route('/users/:user_id')
 app.use('/api', router);
 
 //starts the server and listens for requests
-app.listen(port, function() {
+app.listen(port, () => {
   console.log(`api running on port ${port}`);
 });

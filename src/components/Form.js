@@ -7,7 +7,7 @@ class Form extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      phone: ''
+      phoneNumber: ''
     };
     this.handlefirstNameChange = this.handlefirstNameChange.bind(this);
     this.handlelastNameChange = this.handlelastNameChange.bind(this);
@@ -32,7 +32,7 @@ class Form extends Component {
   }
 
   handlephoneChange(e) {
-    this.setState({ phone: e.target.value });
+    this.setState({ phoneNumber: e.target.value });
   }
 
   handleSubmit(e) {
@@ -40,13 +40,13 @@ class Form extends Component {
     let firstName = this.state.firstName.trim();
     let lastName = this.state.lastName.trim();
     let email = this.state.email.trim();
-    let phone = this.state.phone.trim();
-    if (!firstName || !lastName || !email || !phone) {
+    let phoneNumber = this.state.phoneNumber.trim();
+    if (!firstName || !lastName || !email || !phoneNumber) {
       alert('Please fill in all information')
       return;
     }
-    this.props.onCommentSubmit({ firstName: firstName, lastName: lastName, email: email, phone: phone});
-    this.setState({ firstName: '', lastName: '', email: '', phone: ''});
+    this.props.onCommentSubmit({ firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber});
+    this.setState({ firstName: '', lastName: '', email: '', phoneNumber: ''});
   }
 
   render() {
@@ -81,7 +81,7 @@ class Form extends Component {
           <input
           type='tel'
           placeholder='Your phone number...'
-          value={this.state.phone}
+          value={this.state.phoneNumber}
           onChange={this.handlephoneChange}/>
           <br/><br/>
           <input type='submit' value='Submit'/>

@@ -13,7 +13,7 @@ class UserPage extends Component {
           <h1 className='component-title'>{this.props.firstName}'s Account'</h1>
         </header>
         <p>You just earned {this.props.points} for logging in!</p>
-        <p>You have loged-in {/*number of logins*/} times.</p>
+        <p>Your last login was: {this.props.lastLogin}</p>
         <p> Total points:{/*point total*/}</p>
 
         {/* email with points Total */}

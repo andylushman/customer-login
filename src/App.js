@@ -23,6 +23,7 @@ class App extends Component {
       firstName: '',
       lastName: '',
       points: '',
+      lastLogin: ''
     };
   }
 
@@ -105,14 +106,17 @@ class App extends Component {
       let userPhone = res.data[0].phoneNumber;
       let userFirstName = res.data[0].firstName;
       let userLastName = res.data[0].lastName;
+      let lastLogin = res.data[0].lastLogin;
       this.setState({
         phoneNumber: userPhone,
         firstName: userFirstName,
-        lastName: userLastName
+        lastName: userLastName,
+        lastLogin: lastLogin
       });
       console.log(this.state.phoneNumber);
       console.log(this.state.firstName);
       console.log(this.state.lastName);
+      console.log(this.state.lastLogin);
     })
     .catch((error) => {
       console.log(error);
@@ -124,7 +128,7 @@ class App extends Component {
       <div id="app-component">
         <Header />
         <CheckIn phoneNumber={this.state.phoneNumber} appendNumber={this.appendNumber} trimPhoneNumber= {this.trimPhoneNumber} signIn= {this.signIn} />
-        <UserPage firstName= {this.state.firstName} lastName= {this.state.lastName} phoneNumber= {this.state.phoneNumber} />
+        <UserPage firstName= {this.state.firstName} lastName= {this.state.lastName} phoneNumber= {this.state.phoneNumber} lastLogin= {this.state.lastLogin} />
         <Form onCommentSubmit={this.handleUserSubmit} />
       </div>
     );
@@ -132,3 +136,10 @@ class App extends Component {
 }
 
 export default App;
+
+
+// Question for Zach:
+// 1. How to setup a dynamic route for phone number?
+// 2. Explaination of Server.js and models... MVC Model?
+// 3. Do you have to put 'props' in the consturction(props) and super(props) of child components
+// 4. Explination of react initialization componients such as componentWillMount() and componentDidMount() etc.
