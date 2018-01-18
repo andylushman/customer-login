@@ -45,7 +45,7 @@ router.route('/users/')
   //retrieve all users from the database
   .get(function(req, res) {
     //looks at our user Schema
-    User.find({'phone': '1112223333'}, function(err, users) {
+    User.find({'phoneNumber': '1112223333'} function(err, users) {
       if (err)
         res.send(err);
       //responds with a json object of our database users.
@@ -58,8 +58,10 @@ router.route('/users/')
     (req.body.firstName) ? user.firstName = req.body.firstName : null;
     (req.body.lastName) ? user.lastName = req.body.lastName : null;
     (req.body.email) ? user.email = req.body.email : null;
-    (req.body.phone) ? user.phone = req.body.phone : null;
-    (req.body.points) ? user.points = req.body.points : null;
+    (req.body.phoneNumber) ? user.phoneNumber = req.body.phoneNumber : null;
+    (req.body.pointsEarned) ? user.pointsEarned = req.body.pointsEarned : null;
+    (req.body.totalPoints) ? user.totalPoints = req.body.totalPoints : null;
+    (req.body.lastLogin) ? user.lastLogin = req.body.lastLogin : null;
 
     user.save(function(err) {
       if (err)

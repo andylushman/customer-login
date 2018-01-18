@@ -97,15 +97,24 @@ class App extends Component {
     console.log(newPhoneNumber);
     axios.get(this.props.url, {
     params: {
-      phone: newPhoneNumber
+      phoneNumber: newPhoneNumber
     }
     })
-    .then(function (res) {
-      let userPhone = res.data[0].phone;
-      this.setState({phoneNumber: userPhone});
+    .then((res) => {
+      console.log(res);
+      let userPhone = res.data[0].phoneNumber;
+      let userFirstName = res.data[0].firstName;
+      let userLastName = res.data[0].lastName;
+      this.setState({
+        phoneNumber: userPhone,
+        firstName: userFirstName,
+        lastName: userLastName
+      });
       console.log(this.state.phoneNumber);
+      console.log(this.state.firstName);
+      console.log(this.state.lastName);
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
     });
   }
@@ -115,7 +124,7 @@ class App extends Component {
       <div id="app-component">
         <Header />
         <CheckIn phoneNumber={this.state.phoneNumber} appendNumber={this.appendNumber} trimPhoneNumber= {this.trimPhoneNumber} signIn= {this.signIn} />
-        <UserPage />
+        <UserPage firstName= {this.state.firstName} lastName= {this.state.lastName} phoneNumber= {this.state.phoneNumber} />
         <Form onCommentSubmit={this.handleUserSubmit} />
       </div>
     );

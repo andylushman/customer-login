@@ -9,8 +9,10 @@ var userSchema = new Schema({
   firstName: String,
   lastName: String,
   email: String,
-  phone: String,
-  points: Number
+  phoneNumber: String,
+  pointsEarned: Number,
+  totalPoints: Number,
+  lastLogin: { type: Date, default: Date.now }
 });
 
 //export our module to use in server.js
