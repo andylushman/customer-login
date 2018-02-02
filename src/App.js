@@ -143,3 +143,9 @@ export default App;
 // 2. Explaination of Server.js and models... MVC Model?
 // 3. Do you have to put 'props' in the consturction(props) and super(props) of child components
 // 4. Explination of react initialization componients such as componentWillMount() and componentDidMount() etc.
+
+// Answers
+// 1. /:param
+// 2. Break the routes/controleer and models up into smaller files. Typlically, one class per file
+// 3. Best practice is to do that
+// 4. does what each function says. Use logic in the render() to display each component or not
